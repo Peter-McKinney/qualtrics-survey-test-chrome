@@ -13,5 +13,8 @@
       "resources": ["styles.css", "index.js", "reset-intercept-survey.js"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "reloader.js"
+  }
 }

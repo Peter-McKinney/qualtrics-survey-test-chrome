@@ -1,5 +1,3 @@
-"use strict";
-
 const SURVEY_INPUT_ID = "survey-id-input";
 const LAUNCH_SURVEY_BUTTON_ID = "launch-survey-button";
 
@@ -8,7 +6,6 @@ function getInterceptedSurveyId(): string {
     document.getElementById(SURVEY_INPUT_ID) as HTMLInputElement
   )?.value;
 
-  console.log(interceptSurveyId);
   return interceptSurveyId;
 }
 
@@ -25,16 +22,25 @@ document
     if (!url) return;
 
     const interceptSurveyId = getInterceptedSurveyId();
-    const cookieName = `QSI_${interceptSurveyId}`;
+    const cookieName = `QSI_${interceptSurveyId}_intercept`;
 
-    console.log("Attempting to remove cookie:", cookieName);
     chrome.cookies.remove(
       {
         url: url,
         name: cookieName,
       },
-      (details) => {
-        console.log("Cookie removal details:", details);
+      (_details) => {
+        chrome.runtime.sendMessage(
+          {
+            type: "RELOAD_AND_RUN_QSI",
+          },
+          (_response) => {
+            if (chrome.runtime.lastError) {
+              console.error("Runtime error:", chrome.runtime.lastError);
+              return;
+            }
+          },
+        );
       },
     );
   });

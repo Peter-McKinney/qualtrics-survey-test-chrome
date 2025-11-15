@@ -1,6 +1,10 @@
 declare global {
   interface Window {
-    resetInterceptSurvey: (interceptSurveyId: string) => void;
+    QSI: {
+      API: {
+        run: () => void;
+      };
+    };
   }
 }
 
