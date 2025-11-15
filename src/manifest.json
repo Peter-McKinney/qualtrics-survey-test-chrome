@@ -6,11 +6,11 @@
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": ["scripting", "activeTab", "storage", "cookies"],
+  "permissions": ["activeTab", "cookies"],
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
-      "resources": ["styles.css", "index.js", "reset-intercept-survey.js"],
+      "resources": ["styles.css", "index.js"],
       "matches": ["<all_urls>"]
     }
   ],
