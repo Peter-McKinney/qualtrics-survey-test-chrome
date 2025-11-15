@@ -20,6 +20,30 @@ body {
   padding: 1em;
 }
 
+p {
+  margin: 0;
+}
+
+.cookie-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+#cookie-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 1em;
+
+  font-size: 1rem;
+  justify-content: center;
+}
+
 input[type="text"] {
   padding: 0.5em 0.75em;
   font-size: 1rem;

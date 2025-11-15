@@ -13,8 +13,19 @@
           placeholder="Intercept Survey ID"
         />
         <button class="btn control" id="launch-survey-button">
-          Launch Survey
+          Clear Survey & Launch
         </button>
+        <button class="btn control" id="clear-all-and-launch">
+          Clear All Cookies & Launch
+        </button>
+        <p>
+          Note: Clearing cookies will remove all QSI cookies for this domain,
+          which will reset your survey state for every intercept survey.
+        </p>
+      </div>
+      <div class="cookie-list-container">
+        <h2>Existing QSI Cookies:</h2>
+        <div id="cookie-list"></div>
       </div>
     </div>
     <script src="index.js"></script>
