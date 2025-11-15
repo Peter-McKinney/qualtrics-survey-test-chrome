@@ -1,6 +1,6 @@
 # Qualtrics Survey Test Chrome Extension
 
-A chrome extension that will launch intercept surveys by clearing the browser cookie an intercept survey. Users can clear each survey cookie individually or all at once using the clear all and launch button.
+A chrome extension that will launch intercept surveys by clearing the browser cookie for an intercept survey. Users can clear each survey cookie individually or all at once using the clear all and launch button.
 
 The goal of this plugin is to provide an easier way to test client intercept surveys without navigate through the full user flow to trigger the survey.
 
