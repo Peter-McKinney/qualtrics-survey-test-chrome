@@ -34,7 +34,7 @@ async function reloadActiveTabAndRunQSI() {
           let attempts = 0;
           const maxAttempts = 50;
           const intervalId = setInterval(() => {
-            console.log("attempting...");
+            console.log("Checking for window.QSI.API.run()...");
             if (typeof window?.QSI?.API?.run === "function") {
               window.QSI.API.run();
               clearInterval(intervalId);
