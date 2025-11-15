@@ -66,7 +66,7 @@ document
 
     if (tab?.url) {
       await removeCookie(cookieName, tab?.url);
-      attachExistingCookiesToDom();
+      await attachExistingCookiesToDom();
       reloadAndRunQSI();
     }
   });
