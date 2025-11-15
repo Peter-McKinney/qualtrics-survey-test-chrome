@@ -3,12 +3,14 @@ type ReloadAndRunQSIMessage = {
 };
 
 chrome.runtime.onMessage.addListener(
-  (message: ReloadAndRunQSIMessage, _sender, sendResponse): boolean | void => {
+  (message: ReloadAndRunQSIMessage, sender, sendResponse): boolean | void => {
     if (message.type !== "RELOAD_AND_RUN_QSI") return;
 
     reloadActiveTabAndRunQSI().then((value) => {
       sendResponse({ success: value });
     });
+
+    return true;
   },
 );
 
