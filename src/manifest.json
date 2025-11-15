@@ -8,12 +8,6 @@
   },
   "permissions": ["activeTab", "cookies"],
   "host_permissions": ["<all_urls>"],
-  "web_accessible_resources": [
-    {
-      "resources": ["styles.css", "index.js"],
-      "matches": ["<all_urls>"]
-    }
-  ],
   "background": {
     "service_worker": "reloader.js"
   }
