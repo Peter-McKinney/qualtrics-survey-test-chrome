@@ -37,9 +37,9 @@ async function getInterceptCookies(): Promise<string[]> {
 async function attachExistingCookiesToDom(): Promise<void> {
   const cookies = await getInterceptCookies();
   console.log(cookies, "cookies");
-  const domList = document.getElementById(
-    "cookie-list",
-  ) as HTMLDivElement | null;
+  const domList = document.getElementById("cookie-list") as HTMLDivElement;
+
+  domList.innerHTML = "";
 
   for (const cookie of cookies) {
     const domCookie = document.createElement("div");
@@ -66,6 +66,8 @@ document
 
     if (tab?.url) {
       await removeCookie(cookieName, tab?.url);
+      attachExistingCookiesToDom();
+      reloadAndRunQSI();
     }
   });
 
@@ -77,6 +79,7 @@ document
     if (tab?.url) {
       const cookies = await getInterceptCookies();
       await clearCookieList(cookies, tab.url);
+      attachExistingCookiesToDom();
       reloadAndRunQSI();
     }
   });
