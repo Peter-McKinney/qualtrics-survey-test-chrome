@@ -31,11 +31,21 @@ async function reloadActiveTabAndRunQSI() {
         target: { tabId },
         world: "MAIN",
         func: () => {
-          if (typeof window?.QSI?.API?.run === "function") {
-            window.QSI.API.run();
-          } else {
-            console.warn("window.QSI.API.run() is not defined");
-          }
+          let attempts = 0;
+          const maxAttempts = 50;
+          const intervalId = setInterval(() => {
+            console.log("attempting...");
+            if (typeof window?.QSI?.API?.run === "function") {
+              window.QSI.API.run();
+              clearInterval(intervalId);
+            }
+
+            if (attempts >= maxAttempts) {
+              clearInterval(intervalId);
+              console.warn("window.QSI.API.run() was not found after reload.");
+            }
+            attempts++;
+          }, 200);
         },
       });
     }
